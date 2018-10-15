@@ -35,15 +35,24 @@ namespace objectSatelite
         public void PrintPosicion()
         {
             Console.WriteLine("El satélite se encuentra en el paralelo " + paralelo + " Meridiano "+meridiano+" a una distancia de la tierra de "+distancia_tierra+" Kilómetros");
-            Console.ReadLine();
         }
+
         //Método void VariaAltura(double desplazamiento)
         public void VariaAltura(double dsp)
         {
-            this.desplazamiento =  dsp;
+            this.desplazamiento +=  dsp;
         }
         //Método boolean EnOrbita()
+        public bool EnOrbita(bool enOrbita)
+        {
+            return distancia_tierra > 0;
+            
+        }
         //Método void VariaPosicion(double variap, double variam)
-
+        public void VariaPosicion(double variap, double variam)
+        {
+            this.meridiano += variam;
+            this.paralelo += variap;
+        }
     }
 }
