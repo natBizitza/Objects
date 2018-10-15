@@ -22,6 +22,8 @@ namespace ObjectPeso
             //Try the code below, caus eit'sa part of the task
         // this.pesoKg= GetKilos(peso, measure);
         }
+        
+        //get and set methods  (here for measure)- always!!
 
         public double GetPounds(double pesoKg)
         {
