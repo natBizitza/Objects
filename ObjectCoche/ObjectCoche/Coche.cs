@@ -10,6 +10,10 @@ namespace ObjectCoche
     {
         private string marca;
         private string modelo;
+        private int kms;
+        private int litros;
+        private int avSpeed;
+        private string fuel;
 
         public Coche()
         {
@@ -44,5 +48,9 @@ namespace ObjectCoche
         {
             return  "Coche con marca " + this.marca + " y modelo " + this.modelo;
         }
+        //- getTiempo.Indicará el tiempo empleado en realizar el viaje.
+        //– consumoMedio.Consumo medio del vehículo (en litros cada 100 kilómetros).
+        //– consumoEuros.Consumo medio del vehículo(en euros cada 100 kilómetros).
+
     }
 }
