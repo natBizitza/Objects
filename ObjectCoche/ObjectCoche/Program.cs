@@ -14,11 +14,11 @@ namespace ObjectCoche
             c1.SetMarca("ferrari");
             c1.SetModelo("testarrosa");
             Console.WriteLine("Your ride time is " + c1.GetTiempo(30, 10) + " km/h.");
-            Console.WriteLine("You consume " + c1.consumoMedio(60) + " liters per 100 km.");
-            Console.WriteLine("You spend on fuel " + c1.consumoEuros(600) + " euros per 100 km.");
+            Console.WriteLine("You consume " + c1.consumoMedio() + " liters per 100 km.");
+            Console.WriteLine("You spend on fuel " + c1.consumoEuros() + " euros per 100 km.");
 
             Console.WriteLine(c1.MostrarDatos());
-            Coche c2 = new Coche("seat", "panda", 59, 19, 40, 600);
+            Coche c2 = new Coche("seat", "panda", 59, 19, 40);
             Console.WriteLine(c2.MostrarDatos());
 
             Console.ReadLine();

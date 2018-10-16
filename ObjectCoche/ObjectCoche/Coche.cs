@@ -13,7 +13,7 @@ namespace ObjectCoche
         private double km;
         private double litros;
         private double avSpeed;
-        private double fuel;
+        //private double fuel;
 
         public Coche()
         {
@@ -22,17 +22,17 @@ namespace ObjectCoche
             this.km = 60;
             this.litros = 100;
             this.avSpeed = 300;
-            this.fuel = 500;
+            //this.fuel = 500;
         }
 
-        public Coche(string marca, string modelo, double km, double litros, double avSpeed, double fuel)
+        public Coche(string marca, string modelo, double km, double litros, double avSpeed /*double fuel*/)
         {
             this.marca = marca;
             this.modelo = modelo;
             this.km = km; 
             this.litros = litros;
             this.avSpeed = avSpeed;
-            this.fuel = fuel;
+            //this.fuel = fuel;
 
         }
         //Implements methods to get and set the value of the attributes, as well as a 
@@ -58,7 +58,7 @@ namespace ObjectCoche
         // other methods
         public string MostrarDatos()
         {
-            return  "Coche con marca " + this.marca + " y modelo " + this.modelo + " for distance " + km + " km and with average speed of " + avSpeed + " km/h. It consumes " + litros + " liters average for fuel price" + fuel +  " euros.";
+            return  "Coche con marca " + this.marca + " y modelo " + this.modelo + " for distance " + km + " km and with average speed of " + avSpeed + " km/h. It consumes " + litros + " liters average for fuel price " + this.consumoEuros() + ".";
         }
         //- getTiempo.Indicará el tiempo empleado en realizar el viaje.
         public double GetTiempo(double km, double avSpeed)
@@ -66,12 +66,12 @@ namespace ObjectCoche
             return km / avSpeed;
         }
         //– consumoMedio.Consumo medio del vehículo (en litros cada 100 kilómetros).
-        public double consumoMedio(double litros)
+        public double consumoMedio()
         {
-            return litros / 100;
+            return this.litros / 100;
         }
         //– consumoEuros.Consumo medio del vehículo(en euros cada 100 kilómetros).
-        public double consumoEuros(double fuel)
+        public double consumoEuros()
         {
             Console.WriteLine("Please, choose your type of fuel.");
             //Gasolina 95: 1.14 euros
@@ -87,16 +87,15 @@ namespace ObjectCoche
             switch(fuelPrice)
             {
                 case 1:
-                    fuelPrice = 1.14 * fuel;
+                    fuelPrice = 1.14 * this.litros;
                     break;
                 case 2:
-                    fuelPrice = 1.25 * fuel;
+                    fuelPrice = 1.25 * this.litros;
                     break;
                 case 3:
-                    fuelPrice = 1.04 * fuel;
+                    fuelPrice = 1.04 * this.litros;
                     break;
             }
-
             return fuelPrice / 100;
         }
     }
