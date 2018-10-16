@@ -17,10 +17,9 @@ namespace ObjectCoche
             Console.WriteLine("You consume " + c1.consumoMedio(60) + " liters per 100 km.");
             Console.WriteLine("You spend on fuel " + c1.consumoEuros(600) + " euros per 100 km.");
 
-            Console.WriteLine(c1.AllInfo());
+            Console.WriteLine(c1.MostrarDatos());
             Coche c2 = new Coche("seat", "panda", 59, 19, 40, 600);
-            Console.WriteLine(c2.AllInfo());
-            
+            Console.WriteLine(c2.MostrarDatos());
 
             Console.ReadLine();
         }

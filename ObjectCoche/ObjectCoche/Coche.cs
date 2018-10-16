@@ -36,7 +36,7 @@ namespace ObjectCoche
 
         }
         //Implements methods to get and set the value of the attributes, as well as a 
-        //method to display all the information.
+        //Get/Set methods
 
         public string GetMarca()
         {
@@ -54,9 +54,11 @@ namespace ObjectCoche
         {
             this.modelo = modelo;
         }
-        public string AllInfo()
+
+        // other methods
+        public string MostrarDatos()
         {
-            return  "Coche con marca " + this.marca + " y modelo " + this.modelo;
+            return  "Coche con marca " + this.marca + " y modelo " + this.modelo + " for distance " + km + " km and with average speed of " + avSpeed + " km/h. It consumes " + litros + " liters average for fuel price" + fuel +  " euros.";
         }
         //- getTiempo.Indicará el tiempo empleado en realizar el viaje.
         public double GetTiempo(double km, double avSpeed)
@@ -71,8 +73,31 @@ namespace ObjectCoche
         //– consumoEuros.Consumo medio del vehículo(en euros cada 100 kilómetros).
         public double consumoEuros(double fuel)
         {
-            return fuel / 100;
-        }
+            Console.WriteLine("Please, choose your type of fuel.");
+            //Gasolina 95: 1.14 euros
+            //Gasolina 98: 1.25 euros
+            //Diesel: 1.04 euros
 
+            double fuelPrice;
+            Console.WriteLine("1  - Gasolina 95");
+            Console.WriteLine("2  - Gasolina 98");
+            Console.WriteLine("3  - Disel");
+            fuelPrice = Convert.ToInt32(Console.ReadLine());
+
+            switch(fuelPrice)
+            {
+                case 1:
+                    fuelPrice = 1.14 * fuel;
+                    break;
+                case 2:
+                    fuelPrice = 1.25 * fuel;
+                    break;
+                case 3:
+                    fuelPrice = 1.04 * fuel;
+                    break;
+            }
+
+            return fuelPrice / 100;
+        }
     }
 }
