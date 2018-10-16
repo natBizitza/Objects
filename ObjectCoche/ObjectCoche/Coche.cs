@@ -10,11 +10,10 @@ namespace ObjectCoche
     {
         private string marca;
         private string modelo;
-        private double km;
-        private double litros;
-        private double avSpeed;
+        private double km, litros, avSpeed;
         //private double fuel;
 
+        // default parameters. If you leave it empty all the parameters will be '0' be default 
         public Coche()
         {
             this.marca = "ferrri";
@@ -56,9 +55,11 @@ namespace ObjectCoche
         }
 
         // other methods
+
+        //to show all data
         public string MostrarDatos()
         {
-            return  "Coche con marca " + this.marca + " y modelo " + this.modelo + " for distance " + km + " km and with average speed of " + avSpeed + " km/h. It consumes " + litros + " liters average for fuel price " + this.consumoEuros() + ".";
+            return  "Coche con marca " + this.marca + " y modelo " + this.modelo + " for distance " + km + " km and with average speed of " + avSpeed + " km/h. It consumes " + litros + " liters average for fuel price " + this.ConsumoEuros() + ".";
         }
         //- getTiempo.Indicará el tiempo empleado en realizar el viaje.
         public double GetTiempo(double km, double avSpeed)
@@ -66,12 +67,12 @@ namespace ObjectCoche
             return km / avSpeed;
         }
         //– consumoMedio.Consumo medio del vehículo (en litros cada 100 kilómetros).
-        public double consumoMedio()
+        public double ConsumoMedio()
         {
             return this.litros / 100;
         }
         //– consumoEuros.Consumo medio del vehículo(en euros cada 100 kilómetros).
-        public double consumoEuros()
+        public double ConsumoEuros()
         {
             Console.WriteLine("Please, choose your type of fuel.");
             //Gasolina 95: 1.14 euros
@@ -87,14 +88,18 @@ namespace ObjectCoche
             switch(fuelPrice)
             {
                 case 1:
-                    fuelPrice = 1.14 * this.litros;
+                    fuelPrice = 1.14 * ConsumoMedio();
                     break;
                 case 2:
-                    fuelPrice = 1.25 * this.litros;
+                    fuelPrice = 1.25 * ConsumoMedio();
                     break;
                 case 3:
-                    fuelPrice = 1.04 * this.litros;
+                    fuelPrice = 1.04 * ConsumoMedio();
                     break;
+                default:
+                    Console.WriteLine("The number is not correct.");
+                    Console.ReadLine();
+                    return 0;
             }
             return fuelPrice / 100;
         }
